@@ -26,16 +26,17 @@ As fields and method parameters are injected after the constructor is called, yo
 - create a class that is not a specific implementation of a business logic.
 
 ### Dagger2 Components and its use 
-- @Module - Used on classes which contains methods annotated with @Provides.
-- @Component - Used on an interface. This interface is used by Dagger 2 to generate code which uses the modules to fulfill the requested dependencies. Enable selected modules and used for performing dependency injection
-- @Subcomponent
-- @Provide - Can be used on methods in classes annotated with @Module and is used for methods which provides objects for dependencies injection. define classes and methods which provide dependencies.
-- @Scope - This mechanism takes responsibility of making and keeping a single instance of required class while corresponding Scope exists.
-- @Inject - request dependencies. Can be used on a constructor, a field, or a method
-- @Singleton — Single instance of this provided object is created and shared.
-- @ChatScope — for chat objects.
-- @ChatScreenScope — for particular chat screen objects.
-- @Qualifier - annotation is provided by javax inject package and is used to qualify the dependency. For example, a class can ask both, an Application Context and an Activity Context. But both these Objects will be of type Context. So, for Dagger2 to figure out which variable is to be provided with what, we have to explicitly specify the identifier for it.
+- **Module :** Used on classes which contains methods annotated with @Provides.
+- **Component :** Used on an interface. This interface is used by Dagger 2 to generate code which uses the modules to fulfill the requested dependencies. Enable selected modules and used for performing dependency injection
+- **Subcomponent :**
+- **Provide :** Can be used on methods in classes annotated with @Module and is used for methods which provides objects for dependencies injection. define classes and methods which provide dependencies.
+- **Scope :** This mechanism takes responsibility of making and keeping a single instance of required class while corresponding Scope exists.
+- **Inject :** request dependencies. Can be used on a constructor, a field, or a method
+- **Singleton :**  Single instance of this provided object is created and shared.
+- **ChatScope :**  for chat objects.
+- **ChatScreenScope :**  for particular chat screen objects.
+- **Qualifier :** annotation is provided by javax inject package and is used to qualify the dependency. For example, a class can ask both, an Application Context and an Activity Context. But both these Objects will be of type Context. So, for Dagger2 to figure out which variable is to be provided with what, we have to explicitly specify the identifier for it.
+- **Named :** annotation provided by Dagger2.@Named itself is annotated with @Qualifier. With @Named we have to provide string identifier for similar class objects and this identifier is used to map the dependency of a class. We will explore the @Named at the end of this example. 
 
 
 **Dependency provider:** Classes annotated with @Module are responsible for providing objects which can be injected. Such classes define methods annotated with @Provides. The returned objects from these methods are available for dependency injection.
