@@ -1,22 +1,42 @@
 package spit.spdagger2.app;
 
 import android.app.Application;
+import android.content.Context;
+
+import javax.inject.Inject;
+
+import spit.spdagger2.component.DaggerGitHubComponent;
+import spit.spdagger2.component.DaggerNetComponent;
+import spit.spdagger2.component.GitHubComponent;
+import spit.spdagger2.component.NetComponent;
+import spit.spdagger2.module.AppModule;
+import spit.spdagger2.module.GitHubModule;
+import spit.spdagger2.module.NetModule;
+import spit.spdagger2.otherExample.DataManager;
+import spit.spdagger2.otherExample.di.component.ApplicationComponent;
+import spit.spdagger2.otherExample.di.component.DaggerApplicationComponent;
+import spit.spdagger2.otherExample.di.module.ApplicationModule;
 
 /**
  * Created by sibaprasad on 18/02/18.
  */
 
-import android.app.Application;
-
-import spit.spdagger2.component.GitHubComponent;
-import spit.spdagger2.component.NetComponent;
-import spit.spdagger2.module.AppModule;
-import spit.spdagger2.module.NetModule;
-
 public class MyApplication extends Application {
 
+    /****
+     * FOR OTHER EXAMPLE
+     *
+     */
+
+    protected ApplicationComponent applicationComponent;
+    @Inject
+    DataManager dataManager;
     private NetComponent mNetComponent;
     private GitHubComponent mGitHubComponent;
+
+    public static MyApplication get(Context context) {
+        return (MyApplication) context.getApplicationContext();
+    }
 
     @Override
     public void onCreate() {
@@ -34,6 +54,12 @@ public class MyApplication extends Application {
                 .gitHubModule(new GitHubModule())
                 .build();
 
+        applicationComponent = DaggerApplicationComponent
+                .builder()
+                .applicationModule(new ApplicationModule(this))
+                .build();
+        applicationComponent.inject(this);
+
     }
 
     public NetComponent getNetComponent() {
@@ -42,5 +68,9 @@ public class MyApplication extends Application {
 
     public GitHubComponent getGitHubComponent() {
         return mGitHubComponent;
+    }
+
+    public ApplicationComponent getComponent() {
+        return applicationComponent;
     }
 }
