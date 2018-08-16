@@ -20,9 +20,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".otherExample.DaggerExampleActivity">
-
-        </activity>
+        <activity android:name=".otherExample.DaggerExampleActivity" />
+        <activity android:name=".dagger2New.Dagger2NewActivity" />
+        <activity android:name=".spdagger2.SpDagger2Activity"></activity>
     </application>
 
 </manifest>

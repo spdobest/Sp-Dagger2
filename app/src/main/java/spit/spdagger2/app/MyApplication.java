@@ -16,6 +16,8 @@ import spit.spdagger2.otherExample.DataManager;
 import spit.spdagger2.otherExample.di.component.ApplicationComponent;
 import spit.spdagger2.otherExample.di.component.DaggerApplicationComponent;
 import spit.spdagger2.otherExample.di.module.ApplicationModule;
+import spit.spdagger2.spdagger2.di.component.BasicComponent;
+import spit.spdagger2.spdagger2.di.component.DaggerBasicComponent;
 
 /**
  * Created by sibaprasad on 18/02/18.
@@ -27,6 +29,8 @@ public class MyApplication extends Application {
      * FOR OTHER EXAMPLE
      *
      */
+
+    private BasicComponent basicComponent;
 
     protected ApplicationComponent applicationComponent;
     @Inject
@@ -60,6 +64,11 @@ public class MyApplication extends Application {
                 .build();
         applicationComponent.inject(this);
 
+
+        basicComponent = DaggerBasicComponent.builder()
+                .appModule(new spit.spdagger2.spdagger2.di.module.AppModule(this))
+                .build();
+
     }
 
     public NetComponent getNetComponent() {
@@ -72,5 +81,9 @@ public class MyApplication extends Application {
 
     public ApplicationComponent getComponent() {
         return applicationComponent;
+    }
+
+    public BasicComponent basicComponent() {
+        return basicComponent;
     }
 }
