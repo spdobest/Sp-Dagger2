@@ -1,11 +1,24 @@
 # Sp-Dagger2
 Documentation of Dagger 2 in Android Application
-
-**Dependency Injection** in build upon the concept of Inversion of Control. Which says that a class should get its dependencies from outside. In simple words, no class should instantiate another class but should get the instances from a configuration class.
-
-If a java class creates an instance of another class via the new operator, then it cannot be used and tested independently from that class and is called a hard dependency.
-
-
+  
+**Dagger 2** is a fully static,compiletime dependency injection framewoork for both java and Android.  
+  
+**WHy Dependencies are Bad ?**  
+  
+ whenthere are many dependencies floating around the class, it leads to hard dependency problems.which leads to below problems  
+   
+* Hard dependency reduce the reusabilit  
+* Hard dependencies makes it hard for testing  
+* Hard dependencies hinders code maintailbility when the project scales up.  
+  
+**Types of Dependencies**  
+1. Class Depedency -- Dependencies on classes    
+2. Interface Dependency  -- dependencies oninterface  
+3. Method/Field dependency  -- Dependencies on concrete methods or fields of an object  
+4. Direct and indirect dependency  -- 
+When we create a class instance by using new operator , then it cant be used and tested independently  
+  
+  
 **Mode of Injection:**
 Constructor Injection: Injecting the method parameters.
 Field Injection: Injecting the member variable (must not be private).
@@ -20,6 +33,11 @@ Order of dependency injection according to JSR330
 The order in which the methods or fields annotated with @Inject are called is not defined by JSR330. You cannot assume that the methods or fields are called in the order of their declaration in the class.
 As fields and method parameters are injected after the constructor is called, you cannot use injected member variables in the constructor.
 
+**Dependency Injection** in build upon the concept of Inversion of Control. Which says that a class should get its dependencies from outside. In simple words, no class should instantiate another class but should get the instances from a configuration class.It is a technique whereby one object suplies the dependencies of another Object. A dependency is an object that can be used .  
+  
+An injection is a passing of dependency to a independent object that would use it.
+
+If a java class creates an instance of another class via the new operator, then it cannot be used and tested independently from that class and is called a hard dependency.  
 
 ### Advantage Of Dagger2
 - increases the possibility of reusing the class and to be able to test them independent of other classes
