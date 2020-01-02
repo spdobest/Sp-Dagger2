@@ -13,16 +13,16 @@ Documentation of Dagger 2 in Android Application
   
 **Types of Dependencies**  
 1. Class Depedency -- Dependencies on classes    
-2. Interface Dependency  -- dependencies oninterface  
+2. Interface Dependency  -- dependencies on interface  
 3. Method/Field dependency  -- Dependencies on concrete methods or fields of an object  
 4. Direct and indirect dependency  -- 
 When we create a class instance by using new operator , then it cant be used and tested independently  
   
   
-**Mode of Injection:**
-Constructor Injection: Injecting the method parameters.
-Field Injection: Injecting the member variable (must not be private).
-Method Injection: Injecting the method parameter.
+## **Mode of Injection:**  
+**Constructor Injection:** Injecting the method parameters.  
+**Field Injection:** Injecting the member variable (must not be private).  
+**Method Injection:** Injecting the method parameter.  
 Order of dependency injection according to JSR330
 
 - Constructor
