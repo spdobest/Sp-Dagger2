@@ -6,21 +6,23 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
-        android:name=".kotlinmvpdagger2.BaseApp"
+        android:name=".main.BaseApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
-        <activity android:name=".kotlinmvpdagger2.ui.main.MainActivity"
-            >
+        <activity android:name="spit.spdagger2.main.otherexample.OtherActivity">
             <intent-filter>
-                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.VIEW" />
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name="spit.spdagger2.main.kotlinexample.ui.main.MainActivity">
+
         </activity>
     </application>
 
