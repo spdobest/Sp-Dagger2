@@ -10,7 +10,7 @@ import javax.inject.Singleton
 @Component(modules = arrayOf(AppModule::class, NetModule::class))
 interface NetComponent {
 
-//    fun inject(application: MainActivity)
+//    fun inject(application: GithubActivity)
 
     // downstream components need these exposed
 

@@ -24,6 +24,9 @@
         <activity android:name="spit.spdagger2.main.kotlinexample.ui.main.MainActivity">
 
         </activity>
+
+        <activity android:name=".githubExample.GithubActivity" />
+        <!-- add Github application class before running github Activity-->
     </application>
 
 </manifest>

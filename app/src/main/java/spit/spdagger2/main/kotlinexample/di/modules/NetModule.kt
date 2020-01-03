@@ -28,7 +28,7 @@ class NetModule {
     // Dagger will only look for methods annotated with @Provides
     @Provides
     @Singleton
-    public fun  // Application reference must come from AppModule.class
+    public fun  // Application reference must come from GithubAppModule.class
             providesSharedPreferences(application: Application?): SharedPreferences? {
         return PreferenceManager.getDefaultSharedPreferences(application)
     }

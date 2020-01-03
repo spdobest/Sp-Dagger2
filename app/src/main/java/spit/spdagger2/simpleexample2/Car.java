@@ -12,11 +12,11 @@ public class Car {
     private Wheels wheels;
     private EngineInterface engineInterface;
 
-    @Inject
+/*    @Inject
     public Car(Engine engine, Wheels wheels) {
         this.engine = engine;
         this.wheels = wheels;
-    }
+    }*/
 
     @Inject
     public Car(EngineInterface engineInterface, Wheels wheels) {
